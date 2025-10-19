@@ -8,9 +8,9 @@
         Height="{Binding WindowHeight}"
         x:Class="ZenSay.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/Logo.ico"
         Title="ZenSay"
-        Background="Transparent"
+        Background="#802B2B2B"
         TransparencyLevelHint="Transparent"
         SystemDecorations="None"
         ExtendClientAreaToDecorationsHint="True"
@@ -29,7 +29,7 @@
 
 
             <Grid PointerPressed="Grid_PointerPressed"
-                  Background="Transparent">
+                  Background="#802B2B2B">
                 <StackPanel Opacity="{Binding ContentOpacity}"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
@@ -46,11 +46,14 @@
                                VerticalAlignment="Bottom"
                                Margin="0,0,10,10"/>
                 </StackPanel>
-                    <Button Content="!"
-                            Command="{Binding OpenPaneCommand}"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
+                    <Button Command="{Binding OpenPaneCommand}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
                             Background="Transparent">
+                        <Image Source="/Assets/Button.png"
+                                Width="16"
+                                Height="16"/>
                     </Button>
+
             </Grid>
 </Window>
