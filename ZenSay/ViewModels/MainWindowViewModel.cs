@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 using System.Timers;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
-using SayZen.Models;
+using CommunityToolkit.Mvvm.Input;
+using ZenSay.Models;
 
-namespace SayZen.ViewModels
+namespace ZenSay.ViewModels
 {
     public partial class MainWindowViewModel : ViewModelBase
     {
@@ -18,6 +19,13 @@ namespace SayZen.ViewModels
         private string quoteText;
         [ObservableProperty]
         private string quoteAuthor;
+        [ObservableProperty]
+        private bool _isPaneOpen = true;
+
+
+        public int WindowWidth => IsPaneOpen ? 400 : 60;
+        public int WindowHeight => IsPaneOpen ? 150 : 60;
+        public double ContentOpacity => IsPaneOpen ? 1.0 : 0.0;
 
         private Timer timer;
         private Dictionary<string, Quote> _quotes;
@@ -28,6 +36,16 @@ namespace SayZen.ViewModels
             _random = new Random();
             GetQuote();
             SetupTimer();
+
+            PropertyChanged += (s, e) =>
+            {
+                if(e.PropertyName == nameof(IsPaneOpen))
+                {
+                    OnPropertyChanged(nameof(WindowWidth));
+                    OnPropertyChanged(nameof(WindowHeight));
+                    OnPropertyChanged(nameof(ContentOpacity));
+                }
+            };
         }
         private async Task GetQuote()
         {
@@ -88,6 +106,12 @@ namespace SayZen.ViewModels
                 QuoteText = quote.Text;
                 QuoteAuthor = quote.Author;
             }
+        }
+
+        [RelayCommand]
+        private void OpenPane()
+        {
+            IsPaneOpen = !IsPaneOpen;
         }
     }
 }

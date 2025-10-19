@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace SayZen.ViewModels
+namespace ZenSay.ViewModels
 {
     public class ViewModelBase : ObservableObject
     {

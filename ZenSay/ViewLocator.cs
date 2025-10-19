@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using SayZen.ViewModels;
+using ZenSay.ViewModels;
 
-namespace SayZen
+namespace ZenSay
 {
     public class ViewLocator : IDataTemplate
     {

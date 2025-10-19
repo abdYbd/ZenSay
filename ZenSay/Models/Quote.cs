@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SayZen.Models
+namespace ZenSay.Models
 {
     public class Quote
     {
-        
         public string Text { get; set; } = string.Empty;
         public string Author { get; set; } = string.Empty;
 

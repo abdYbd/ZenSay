@@ -4,10 +4,10 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using SayZen.ViewModels;
-using SayZen.Views;
+using ZenSay.ViewModels;
+using ZenSay.Views;
 
-namespace SayZen
+namespace ZenSay
 {
     public partial class App : Application
     {
